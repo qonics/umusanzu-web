@@ -3,7 +3,9 @@ import { quasar } from '@quasar/vite-plugin'
 import vuetify from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
   ssr: false,
-
+  publicRuntimeConfig: {
+    API_URL: process.env.API_URL,
+  },
   css: [
     // "~/assets/vendors/feather/feather.css",
     // "~/assets/vendors/mdi/css/materialdesignicons.min.css",
@@ -12,9 +14,7 @@ export default defineNuxtConfig({
     // "~/assets/vendors/simple-line-icons/css/simple-line-icons.css",
     // "~/assets/vendors/css/vendor.bundle.base.css",
 
-    "~/assets/elements/bootstrap.min.css",
-    "~/assets/elements/icons.min.css",
-    "~/assets/elements/app.min.css",
+    // "~/assets/elements/bootstrap.min.css",
     "~/assets/css/main.css",
     "@quasar/extras/material-icons/material-icons.css",
     "~/assets/styles/quasar.sass",
@@ -25,12 +25,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        { src: "~/assets/elements/apexcharts.min.js", body: true },
-        { src: "~/assets/elements/dashboard.init.js", body: true },
-        { src: "~/assets/elements/app.js", body: true },
-        { src: "~/assets/elements/bootstrap.bundle.min.js", body: true },
-        { src: "~/assets/elements/jquery.min.js", body: true },
-        { src: "~/assets/elements/simpleBar.min.js", body: true },
+        // { src: "~/assets/elements/bootstrap.bundle.min.js", body: true },
+        // { src: "~/assets/elements/jquery.min.js", body: true },
+        // { src: "~/assets/elements/simpleBar.min.js", body: true },
       ],
     },
   },

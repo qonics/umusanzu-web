@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from '#app'
-import { Quasar, QPage, QBtn, QToolbarTitle, QToolbar, QCard, QCardSection, QPageContainer, QDrawer,QBtnDropdown,QDate,QMarkupTable
-    , QLayout, QList, QHeader, QItemLabel, QIcon, QItemSection, QItem, QTable, QInput, QSelect, QField, QBadge,QAvatar,QSkeleton
+import { Quasar, QPage, QBtn, QToolbarTitle, QToolbar, QCard, QCardSection, QPageContainer, QDrawer,QBtnDropdown,QDate,QMarkupTable,QSpinnerPuff
+    , QLayout, QList, QHeader, QItemLabel, QIcon, QItemSection, QItem, QTable, QInput, QSelect, QField, QBadge,QAvatar,QSkeleton,QImg
     , QSeparator,QTree, QTd,QTr,Notify,QPopupProxy, QSpace, QCheckbox,QForm, QDialog,QCardActions, QTh, QChip, QStepper, QStep, QStepperNavigation, QOptionGroup, QRadio, QUploader, } from 'quasar';
 
 export default defineNuxtPlugin(nuxtApp => {
@@ -9,6 +9,8 @@ export default defineNuxtPlugin(nuxtApp => {
     components: {
       QPage,
       QBtn,
+      QSpinnerPuff,
+      QImg,
       QToolbarTitle,
       QToolbar,
       QCard,
@@ -53,7 +55,9 @@ export default defineNuxtPlugin(nuxtApp => {
       QUploader,
       Quasar
     },
-    plugins: {},
+    plugins: {
+      Notify
+    },
   };
 
   nuxtApp.vueApp.use(Quasar, quasarUserOptions, {

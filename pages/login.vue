@@ -1,132 +1,175 @@
 <template>
-
-    <body>
-        <div class="account-pages my-5 pt-sm-5">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
-                        <div class="card overflow-hidden">
-                            <div class="bg-primary bg-soft">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <div class="text-primary p-4">
-                                            <h5 class="text-primary">Welcome Back !</h5>
-                                            <p>Sign in to continue to Skote.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-5 align-self-end">
-                                        <img src="@/assets/elements/profile-img.png" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body pt-0">
-                                <div class="auth-logo">
-                                    <a href="https://themesbrand.com/skote-django/layouts/index.html"
-                                        class="auth-logo-light">
-                                        <div class="avatar-md profile-user-wid mb-4">
-                                            <span class="avatar-title rounded-circle bg-light">
-                                                <img src="@/assets/elements/logo-light.svg" alt=""
-                                                    class="rounded-circle" height="34">
-                                            </span>
-                                        </div>
-                                    </a>
-
-                                    <a href="https://themesbrand.com/skote-django/layouts/index.html"
-                                        class="auth-logo-dark">
-                                        <div class="avatar-md profile-user-wid mb-4">
-                                            <span class="avatar-title rounded-circle bg-light">
-                                                <img src="@/assets/elements/logo.svg" alt="" class="rounded-circle"
-                                                    height="34">
-                                            </span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="p-2">
-                                    <form class="form-horizontal"
-                                        action="https://themesbrand.com/skote-django/layouts/index.html">
-
-                                        <div class="mb-3">
-                                            <label for="username" class="form-label">Username</label>
-                                            <v-text-field ref="username" v-model="username"
-                                                :rules="[() => !!username || 'This field is required']"
-                                                :error-messages="errorMessages" label="Username" variant="solo"
-                                                density="compact" placeholder="Enter your username" required />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Password</label>
-                                            <v-text-field ref="password" v-model="password"
-                                                :rules="[() => !!password || 'This field is required']"
-                                                :error-messages="errorMessages" label="password" variant="solo"
-                                                density="compact" placeholder="Enter your password" required />
-                                        </div>
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="remember-check">
-                                            <label class="form-check-label" for="remember-check">
-                                                Remember me
-                                            </label>
-                                        </div>
-
-                                        <div class="mt-3 d-grid">
-                                            <button class="btn btn-primary waves-effect waves-light" type="submit">Log
-                                                In</button>
-                                        </div>
-
-                                        <div class="mt-4 text-center">
-                                            <h5 class="font-size-14 mb-3">Sign in with</h5>
-
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()"
-                                                        class="social-list-item bg-primary text-white border-primary">
-                                                        <i class="mdi mdi-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()"
-                                                        class="social-list-item bg-info text-white border-info">
-                                                        <i class="mdi mdi-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="javascript::void()"
-                                                        class="social-list-item bg-danger text-white border-danger">
-                                                        <i class="mdi mdi-google"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="mt-4 text-center">
-                                            <a href="https://themesbrand.com/skote-django/layouts/auth-recoverpw.html"
-                                                class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your
-                                                password?</a>
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="mt-5 text-center">
-
-                            <div>
-                                <p>Don't have an account ? <a
-                                        href="https://themesbrand.com/skote-django/layouts/auth-register.html"
-                                        class="fw-medium text-primary"> Signup now </a> </p>
-                                <p>2022 Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+  <div class="row justify-center" style="height: 100vh">
+    <div class="col hidden-sm hidden-xs justify-center" style="padding: 15px">
+      <div class="q-ma-lg">
+        <q-img src="/img/250_rwanda.png" style="width: 40px; margin-top: -13px" />
+        <label style="font-size: 20pt">UMUSANZU Digital</label>
+      </div>
+      <q-img class="center-y" src="/img/login-vector.jpg" style="" />
+    </div>
+    <div class="col" style="position: relative">
+      <div class="center q-pa-sm" style="width: 100%; max-width: 500px;">
+        <div v-if="!isForget">
+          <label class="text-h3">Welcome Back <span style="font-size:30pt">&#128525;</span></label>
+          <p class="text-body2 q-mt-md">
+            To manage umusanzu dital please login with your username and password
+          </p>
         </div>
+        <div v-else>
+          <label class="text-h3">Forget Password <span style="font-size:30pt">&#128526;</span></label>
+          <p class="text-body2 q-mt-md">
+            Don't worry you can reset your password by entering your phone
+          </p>
+        </div>
+        <q-form
+          @submit="login"
+          @reset="loginReset"
+          class="q-gutter-md q-mt-md"
+          v-if="!isForget"
+        >
+          <div class="mb-3">
+            <q-input
+              filled
+              v-model="username"
+              label="Your username *"
+              hint="Enter your username"
+              lazy-rules
+              :rules="[(val) => (val && val.length > 3) || 'Username is required']"
+            >
+              <template v-slot:prepend>
+                <q-icon name="mail" />
+              </template>
+              <template v-if="username != null && username.length > 3" v-slot:append>
+                <q-chip color="green">
+                  <q-icon name="check" />
+                </q-chip>
+              </template>
+            </q-input>
+          </div>
+          <div class="mb-3">
+            <q-input
+              filled
+              v-model="password"
+              label="Your password *"
+              :type="isPwd ? 'password' : 'text'"
+              hint="Enter your password"
+              lazy-rules
+              :rules="[(val) => (val && val.length > 5) || 'Password is required']"
+            >
+              <template v-slot:prepend>
+                <q-icon name="lock" />
+              </template>
 
+              <template v-slot:append>
+                <q-icon
+                  :name="isPwd ? 'visibility_off' : 'visibility'"
+                  class="cursor-pointer"
+                  @click="isPwd = !isPwd"
+                />
+                <q-chip color="green" v-if="password != null && password.length > 5">
+                  <q-icon name="check" />
+                </q-chip>
+              </template>
+            </q-input>
+          </div>
+          <div class="row justify-between">
+            <div class="col">
+              <q-checkbox
+                left-label
+                v-model="remember_me"
+                label="Remember me"
+                checked-icon="task_alt"
+                unchecked-icon="highlight_off"
+              />
+            </div>
+            <div class="col-auto">
+              <q-btn
+                @click="isForget = !isForget"
+                flat
+                color="primary"
+                label="Forget Password?"
+              />
+            </div>
+          </div>
+          <div class="col-auto">
+            <q-btn style="width: 100%" color="teal" glossy label="Log In" type="submit" />
+          </div>
+        </q-form>
 
-    </body>
+        <q-form
+          @submit="forgetPassword"
+          @reset="forgetReset"
+          class="q-gutter-md q-mt-md"
+          v-else
+        >
+          <div class="mb-3">
+            <q-input
+              filled
+              v-model="phone"
+              label="Your phone number *"
+              hint="Enter your phone"
+              lazy-rules
+              :rules="[(val) => (val && val.length == 10) || 'Phone number is not correct']"
+            >
+              <template v-slot:prepend>
+                <q-icon name="phone" />
+              </template>
+              <template v-if="phone != null && phone.length == 10" v-slot:append>
+                <q-chip color="green">
+                  <q-icon name="check" />
+                </q-chip>
+              </template>
+            </q-input>
+          </div>
+         
+          <div class="row justify-between">
+            <q-btn class="col-5" rounded color="teal" glossy label="Reset password" type="submit" />
+            <q-btn class="col-5" rounded color="white" text-color="primary" glossy label="Back to login" @click="isForget = !isForget" />
+          </div>
+        </q-form>
+      </div>
+    </div>
+    <label style="position: absolute; bottom: 10px"
+      >IMENA SOFTEK LTD &copy;{{ new Date().getFullYear() }}</label
+    >
+  </div>
 </template>
-<script lang="ts">
-const username = ref(null)
-const password = ref(null)
-const errorMessages = ref("")
+<script lang="ts" setup>
+import { useQuasar } from "quasar";
+definePageMeta({
+  layout: false,
+  title: "Login",
+});
+const $q = useQuasar();
+const username = ref(null);
+const phone = ref(null);
+const remember_me = ref(false);
+const isPwd = ref(true);
+const isForget = ref(false);
+const password = ref(null);
+const errorMessages = ref("");
+function login() {
+    $q.notify({
+    color: "red-4",
+    textColor: "white",
+    icon: "cloud_done",
+    message: "Username or passowrd are not correct, try again",
+  });
+}
+function forgetPassword() {
+  $q.notify({
+    color: "red-4",
+    textColor: "white",
+    icon: "cloud_done",
+    message: "Password reset failed, We are not able to send SMS. \nSorry for the inconvenience, please try again later",
+  });
+}
+function loginReset() {
+  username.value = null;
+  password.value = null;
+}
+function forgetReset() {
+  username.value = null;
+  password.value = null;
+}
 </script>
