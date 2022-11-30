@@ -8,15 +8,19 @@
       <q-img class="center-y" src="/img/login-vector.jpg" style="" />
     </div>
     <div class="col" style="position: relative">
-      <div class="center q-pa-sm" style="width: 100%; max-width: 500px;">
+      <div class="center q-pa-sm" style="width: 100%; max-width: 500px">
         <div v-if="!isForget">
-          <label class="text-h3">Welcome Back <span style="font-size:30pt">&#128525;</span></label>
+          <label class="text-h3"
+            >Welcome Back <span style="font-size: 30pt">&#128525;</span></label
+          >
           <p class="text-body2 q-mt-md">
             To manage umusanzu dital please login with your username and password
           </p>
         </div>
         <div v-else>
-          <label class="text-h3">Forget Password <span style="font-size:30pt">&#128526;</span></label>
+          <label class="text-h3"
+            >Forget Password <span style="font-size: 30pt">&#128526;</span></label
+          >
           <p class="text-body2 q-mt-md">
             Don't worry you can reset your password by entering your phone
           </p>
@@ -109,7 +113,9 @@
               label="Your phone number *"
               hint="Enter your phone"
               lazy-rules
-              :rules="[(val) => (val && val.length == 10) || 'Phone number is not correct']"
+              :rules="[
+                (val) => (val && val.length == 10) || 'Phone number is not correct',
+              ]"
             >
               <template v-slot:prepend>
                 <q-icon name="phone" />
@@ -121,10 +127,25 @@
               </template>
             </q-input>
           </div>
-         
+
           <div class="row justify-between">
-            <q-btn class="col-5" rounded color="teal" glossy label="Reset password" type="submit" />
-            <q-btn class="col-5" rounded color="white" text-color="primary" glossy label="Back to login" @click="isForget = !isForget" />
+            <q-btn
+              class="col-5"
+              rounded
+              color="teal"
+              glossy
+              label="Reset password"
+              type="submit"
+            />
+            <q-btn
+              class="col-5"
+              rounded
+              color="white"
+              text-color="primary"
+              glossy
+              label="Back to login"
+              @click="isForget = !isForget"
+            />
           </div>
         </q-form>
       </div>
@@ -149,7 +170,7 @@ const isForget = ref(false);
 const password = ref(null);
 const errorMessages = ref("");
 function login() {
-    $q.notify({
+  $q.notify({
     color: "red-4",
     textColor: "white",
     icon: "cloud_done",
@@ -161,7 +182,8 @@ function forgetPassword() {
     color: "red-4",
     textColor: "white",
     icon: "cloud_done",
-    message: "Password reset failed, We are not able to send SMS. \nSorry for the inconvenience, please try again later",
+    message:
+      "Password reset failed, We are not able to send SMS. \nSorry for the inconvenience, please try again later",
   });
 }
 function loginReset() {
